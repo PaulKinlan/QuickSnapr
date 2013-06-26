@@ -10,7 +10,7 @@ handlers:
   upload: favicon\.ico
 
 - url: .*
-  script: main.app
+  static_dir: static/
 
 libraries:
 - name: webapp2
