@@ -3,6 +3,7 @@
 <head>
   <title>Take your profile photo using your webcam</title>
   <link rel="stylesheet" href="/styles/application.css">
+  <meta name="viewport" content="width=device-width">
   <link rel=icon href="favicon.ico" />
 </head>
 <body>
@@ -12,17 +13,23 @@
       <img src="/images/camera.png" alt="quicksnapr Logo" />
     </h1>
   </header>
+  
+    
   <section class="cf">
     <div id="container">
       <video poster="/images/no-support.png"  autoplay>
       </video>
       <canvas style="display:none"></canvas>
     </div>
-    <div id="snaps" class="cf">
+    <div id="snaps">
       <!-- add screencaps -->
-      <div class="cf" id="actions"><span class="action" id="save">Save</span><span class="action share" id="share">Share</span><span class="action delete" id="delete">Delete</span></div>
+    </div>
+    <div id="actions">
+      <span class="action" id="save">Save</span>
+      <span class="action delete" id="delete">Delete</span>
     </div>
   </section>
+
   <footer>Made by Google</footer>
 </body>
 <!-- scripts -->
