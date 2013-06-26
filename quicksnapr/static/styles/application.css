@@ -12,7 +12,7 @@
 }
 
 /* html, body */
-html { box-sizing:border-box; min-height:100%; width:100%; background:url(../images/back.jpg) no-repeat fixed; -webkit-background-size:100% 100%; overflow:auto; }
+html { box-sizing:border-box; min-height:100%; width:100%; background:url(/images/back.jpg) no-repeat fixed; -webkit-background-size:100% 100%; overflow:auto; }
 body { margin:0; padding:0; height:100%; /*width:100%;*/ width:1300px; font-family:'Open Sans Condensed', sans-serif; }
 
 /* general resets */
@@ -33,7 +33,7 @@ section { padding:0 30px; position:relative; z-index:2; }
 /* main stuffs */
 #container { cursor:pointer; width:730px; border-radius:0; border:5px solid white; background:white; margin:110px auto 0; box-shadow:0 1px 1px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.1), 0 3px 4px rgba(0,0,0,0.05); /*position:relative;*/ position:absolute; top:-106px; right:50px; z-index:1; }
 #container:active { border-color:#d4870d; }
-#container:after { content:"Click above to take some screenshots."; text-shadow:0 1px 0 rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.05), 0 2px 3px rgba(0,0,0,0.2); font-size:150%; padding:0; color:white; display:block; background:transparent url(../images/arrow.png) no-repeat bottom right; height:65px; width:330px; position:absolute; bottom:-92px; left:0; }
+#container:after { content:"Click above to take some screenshots."; text-shadow:0 1px 0 rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.05), 0 2px 3px rgba(0,0,0,0.2); font-size:150%; padding:0; color:white; display:block; background:transparent url(/images/arrow.png) no-repeat bottom right; height:65px; width:330px; position:absolute; bottom:-92px; left:0; }
 #done { display:none; }
 video { display:block; width:100%; position:relative; z-index:1; }
 
