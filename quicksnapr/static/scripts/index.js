@@ -53,13 +53,9 @@ $(function() {
   actions.on('click','#delete',function(){
     snap.find('figure.selected').removeClass('ease-in active non').addClass('ease-out');
     snap.find('figure.non').removeClass('non');
-    container.show();
-    setTimeout(function() {
-      snap.find('figure.ease-out').remove();
-      actions.removeClass("show");
-      snap.removeClass('pad');
-      head.removeClass('pad');
-    }, 800);
+    
+    snap.find('figure.ease-out').remove();
+    actions.removeClass("show");
   });
 	
   // Hook up the video camera.
