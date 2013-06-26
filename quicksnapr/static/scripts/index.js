@@ -66,7 +66,7 @@ $(function() {
   video = $("video")[0];
 
   if(navigator.getUserMedia) {
-    navigator.getUserMedia({"video": true}, function(s) {
+    navigator.getUserMedia({ video: true }, function(s) {
       video.src = URL.createObjectURL(s);
       cameraReady = true;
     });
@@ -75,12 +75,13 @@ $(function() {
   $('#container video').click(function() {
      // Snap straight away.
      if(cameraReady) {
-       snapPicture(videoelement[0].videoWidth, videoelement[0].videoHeight);
+       snapPicture($(videoelement)[0].videoWidth, $(videoelement)[0].videoHeight);
        root.addClass('list');
      }
   });
  
   $('#save').click(function() {
-    
+    var canvas = snap.find('figure.selected canvas')[0];
+    $(this).attr("href", canvas.toDataURL("image/png"));
   });
 });

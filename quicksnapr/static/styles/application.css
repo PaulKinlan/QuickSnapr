@@ -58,7 +58,8 @@ button.btn:hover, input.btn:hover, .action:hover { box-shadow:0 2px 0 rgba(0,0,0
 button.btn:active, input.btn:active, .action:active { box-shadow:0 1px 3px rgba(0,0,0,0.45) inset; padding:.2em .65em .1em; top:1px; }
 .btn.share, .action.share { 
   width: auto;
-  margin: 20px;
+  height: 4em;
+  margin: 0;
   border-color:#065a85;
   background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4fb9e5), to(#217eae));
   background: -webkit-linear-gradient(#4fb9e5, #217eae);
@@ -101,7 +102,7 @@ margin:auto; }
 }
 
 /* footer */
-footer { font-size:12px; position:fixed; bottom:3%; right:2%; opacity:.75; z-index:1; text-align:right; text-shadow:0 1px 0 rgba(0,0,0,0.5); color:white; }
+footer { font-size:12px; position:fixed; bottom:1%; right:2%; opacity:.75; z-index:1; text-align:right; text-shadow:0 1px 0 rgba(0,0,0,0.5); color:white; }
 
 /* media queries */
 @media screen and (min-width:320px) {
@@ -120,7 +121,7 @@ footer { font-size:12px; position:fixed; bottom:3%; right:2%; opacity:.75; z-ind
   figure.non { display: none; }
   
   figure.selected { width: 100%; margin: 0; height: 100%; }
-  figure.selected canvas { width: 100%; }
+  figure.selected canvas { width: 640px; height: 480px; }
   
   .cf {
     margin: 0;
@@ -156,6 +157,7 @@ footer { font-size:12px; position:fixed; bottom:3%; right:2%; opacity:.75; z-ind
     display: -webkit-flex;
     -webkit-flex-wrap: wrap;
     -webkit-justify-content: center;
+    -webkit-flex: 1;
     position: static;
     overflow-y: auto;
     flex: 1;
@@ -179,7 +181,7 @@ footer { font-size:12px; position:fixed; bottom:3%; right:2%; opacity:.75; z-ind
   #actions {
     display: none;
     -webkit-flex-direction: row;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,1);
     width: 100%;
     height: auto;
     padding: 1em;
