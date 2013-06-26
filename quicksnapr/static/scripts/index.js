@@ -1,16 +1,17 @@
 var video;
+var cameraReady = false;
 
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
 window.URL = window.URL || window.webkitURL;
 
 
-var snapPicture = function() {
+var snapPicture = function(w, h) {
   var wrapper = document.createElement('figure');
   var newcanvas = document.createElement('canvas');
   var newContext = newcanvas.getContext('2d');
-  newcanvas.width = 640;
-  newcanvas.height = 480;
-  newContext.drawImage(video, 0, 0, 640, 480);
+  newcanvas.width = w;
+  newcanvas.height = h;
+  newContext.drawImage(video, 0, 0, w, h);
   $('article').hide(320);
   wrapper.appendChild(newcanvas);
   wrapper.className = 'ease-in';
@@ -24,22 +25,29 @@ $(function() {
   var container = $('#container');
   var active = snap.find('figure.selected');
   var head = $('header');
+  var root = $('#root');
+  var capture = $('#capture');
+  var videoelement = $("#camerastream");
 
   var actions = $('#actions');
   var figs = snap.find('figure');
 
-  snap.on('click','figure',function(){
-    snap.find('figure').removeClass('selected').addClass('non');
-    snap.find('figure div').detach();
-    snap.addClass('pad');
-    head.addClass('pad');
-    container.hide()
-    $(this).removeClass('non').addClass('selected');
-    actions.fadeIn(320);
-  });
-
-  snap.on("click", "figure.selected canvas", function() { 
+  snap.on('click','figure', function(e){
+    if($(this).hasClass('selected')) {
+      snap.find('figure').removeClass('non').removeClass('selected');
+      actions.removeClass("show");
+    }
+    else {
+      snap.find('figure').removeClass('selected').addClass('non');
+      snap.find('figure div').detach();
+      $(this).removeClass('non').addClass('selected');
+      actions.addClass("show");
+    }
     
+  });
+  
+  capture.on("click", "", function() {
+     root.removeClass('list');
   });
 
   actions.on('click','#delete',function(){
@@ -48,7 +56,7 @@ $(function() {
     container.show();
     setTimeout(function() {
       snap.find('figure.ease-out').remove();
-      actions.hide();
+      actions.removeClass("show");
       snap.removeClass('pad');
       head.removeClass('pad');
     }, 800);
@@ -60,12 +68,16 @@ $(function() {
   if(navigator.getUserMedia) {
     navigator.getUserMedia({"video": true}, function(s) {
       video.src = URL.createObjectURL(s);
+      cameraReady = true;
     });
   }
 
   $('#container video').click(function() {
      // Snap straight away.
-     snapPicture();
+     if(cameraReady) {
+       snapPicture(videoelement[0].videoWidth, videoelement[0].videoHeight);
+       root.addClass('list');
+     }
   });
  
   $('#save').click(function() {

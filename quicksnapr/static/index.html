@@ -14,21 +14,23 @@
     </h1>
   </header>
   
-    
-  <section class="cf">
+  <div id="root">
     <div id="container">
-      <video poster="/images/no-support.png"  autoplay>
+      <video poster="/images/no-support.png" id="camerastream"  autoplay>
       </video>
       <canvas style="display:none"></canvas>
     </div>
-    <div id="snaps">
-      <!-- add screencaps -->
-    </div>
-    <div id="actions">
-      <span class="action" id="save">Save</span>
-      <span class="action delete" id="delete">Delete</span>
-    </div>
-  </section>
+    <section id="control" class="cf">
+      <button id="capture" class="btn share">Capture</button>
+      <div id="snaps">
+        <!-- add screencaps -->
+      </div>
+      <div id="actions">
+        <span class="action" id="save">Save</span>
+        <span class="action delete" id="delete">Delete</span>
+      </div>
+    </section>
+  </div>
 
   <footer>Made by Google</footer>
 </body>
