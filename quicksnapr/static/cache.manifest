@@ -1,6 +1,14 @@
 CACHE MANIFEST:
 
-# version 
+# version 0
 
+/
 /scripts/index.js
 /styles/application.css
+/styles/OpenSans-CondLight.ttf
+/images/no-support.png
+/images/nosupport.jpg
+/images/camera.png
+
+PROXY:
+/videos/*

@@ -2,10 +2,6 @@
 	font-family:'Open Sans Condensed';  
 	src:url(OpenSans-CondLight.ttf) format("truetype");  
 }
-@font-face {  
-	font-family:'Fredoka One';  
-	src:url(FredokaOne-Regular.ttf) format("truetype");  
-}
 
 /* html, body */
 html { box-sizing:border-box; min-height:100%; width:100%; overflow:auto; }
@@ -20,10 +16,6 @@ body { margin:0; padding:0; height:100%; font-family:'Open Sans Condensed', sans
 body, div, section, canvas, video, header, img { -moz-box-sizing:border-box; box-sizing:border-box; }
 
 /* header */
-header { width:15em; margin:0; position:relative; z-index:2; top:40px; left:50px; }
-h1 { color:white; line-height:1; margin:0; letter-spacing:-.05em; width:20em; font-size:2em; font-family:'Fredoka One', cursive; font-weight:100; text-shadow:0 1px 0 rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.05), 0 2px 3px rgba(0,0,0,0.2); }
-h1 em { font-style:normal; padding-right:.15em; }
-h1 img { position:relative; top:7px; }
 section { padding:0 30px; position:relative; z-index:2; }
 
 /* main stuffs */
