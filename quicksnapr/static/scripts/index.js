@@ -5,13 +5,13 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
 window.URL = window.URL || window.webkitURL;
 
 
-var snapPicture = function(w, h) {
+var snapPicture = function(w, h, element) {
   var wrapper = document.createElement('figure');
   var newcanvas = document.createElement('canvas');
   var newContext = newcanvas.getContext('2d');
   newcanvas.width = w;
   newcanvas.height = h;
-  newContext.drawImage(video, 0, 0, w, h);
+  newContext.drawImage(element, 0, 0, w, h);
   $('article').hide(320);
   wrapper.appendChild(newcanvas);
   wrapper.className = 'ease-in';
@@ -28,6 +28,8 @@ $(function() {
   var root = $('#root');
   var capture = $('#capture');
   var videoelement = $("#camerastream");
+  var camerainput = $("#camerainput");
+  var fallback = $("#fallbackcamera");
 
   var actions = $('#actions');
   var figs = snap.find('figure');
@@ -67,11 +69,30 @@ $(function() {
       cameraReady = true;
     });
   }
+  else {
+    videoelement.hide();
+    fallback.show();
+  }
+  
+  camerainput.change(function(e) {
+    var files = e.target.files;
+    if(files.length > 0  && files[0].type.indexOf("image/") == 0) {
+        var img = new Image();
+        img.onload = function() {
+          snapPicture(img.naturalWidth, img.naturalWidth, img);
+          root.addClass('list');
+        }
+        img.src = URL.createObjectURL(files[0]); 
+    }
+    else {
+      // Not the correct type of file
+    }
+  });
 
-  $('#container video').click(function() {
+  videoelement.click(function() {
      // Snap straight away.
      if(cameraReady) {
-       snapPicture($(videoelement)[0].videoWidth, $(videoelement)[0].videoHeight);
+       snapPicture(video.videoWidth, video.videoHeight, video);
        root.addClass('list');
      }
   });

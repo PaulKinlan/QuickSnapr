@@ -57,6 +57,28 @@ background: -webkit-gradient(linear, 0 0, 0 bottom, from(#db3908), to(#8e1201));
 background: -webkit-linear-gradient(#db3908, #8e1201);
 margin:auto; }
 
+#fallbackcamera {
+  margin: auto;
+  text-align: center;
+}
+
+#camerainput {
+  width: 80px;
+  height: 48px;
+  zoom: 5;
+  cursor: pointer;
+}
+
+#camerainput:before {
+  content: url(/images/camera.png);
+  display: inline-block;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
 
 #root {
   -webkit-perspective: 800;
