@@ -21,12 +21,13 @@ var snapPicture = function(w, h, element) {
 $(function() {
 
   var buttons = $('footer').find('.btn');
+  var toggle = $('#toggle');
+  var body = $('body');
   var snap = $('#snaps');
   var container = $('#container');
   var active = snap.find('figure.selected');
   var head = $('header');
   var root = $('#root');
-  var capture = $('#capture');
   var videoelement = $("#camerastream");
   var camerainput = $("#camerainput");
   var fallback = $("#fallbackcamera");
@@ -48,9 +49,9 @@ $(function() {
     
   });
   
-  capture.on("click", "", function() {
-     root.removeClass('list');
-  });
+  toggle.click(function() {
+    root.toggleClass('list');
+  })
 
   actions.on('click','#delete',function(){
     snap.find('figure.selected').removeClass('ease-in active non').addClass('ease-out');
@@ -80,7 +81,6 @@ $(function() {
         var img = new Image();
         img.onload = function() {
           snapPicture(img.naturalWidth, img.naturalWidth, img);
-          root.addClass('list');
         }
         img.src = URL.createObjectURL(files[0]); 
     }
@@ -93,7 +93,12 @@ $(function() {
      // Snap straight away.
      if(cameraReady) {
        snapPicture(video.videoWidth, video.videoHeight, video);
-       root.addClass('list');
+       body.removeClass("flash");
+ 
+       body[0].offsetWidth = body[0].offsetWidth;
+
+         // -> and re-adding the class
+       body.addClass("flash");
      }
   });
  

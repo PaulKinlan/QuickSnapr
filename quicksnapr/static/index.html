@@ -3,10 +3,12 @@
 <head>
   <title>Take your profile photo using your webcam</title>
   <link rel="stylesheet" href="/styles/application.css">
+  <link rel='stylesheet' href='/styles/typicons.min.css' />
   <meta name="viewport" content="width=device-width">
   <link rel=icon href="favicon.ico" />
 </head>
-<body>  
+<body>
+ 
   <div id="root">
     <div id="container">
       <video poster="/images/no-support.png" id="camerastream" autoplay></video>
@@ -16,18 +18,14 @@
       <canvas style="display:none"></canvas>
     </div>
     <section id="control" class="cf">
-      <div id="snaps">
-        <!-- add screencaps -->
-      </div>
-      <button id="capture" class="btn share">Capture</button>
+      <div id="snaps"> </div>
       <div id="actions">
         <a class="action" id="save" href="" download="quicksnapr.png">Save</a>
         <span class="action delete" id="delete">Delete</span>
       </div>
     </section>
   </div>
-
-  <footer>Made by Google</footer>
+   <button id="toggle" class="typcn typcn-th-large"></button>
 </body>
 <!-- scripts -->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
