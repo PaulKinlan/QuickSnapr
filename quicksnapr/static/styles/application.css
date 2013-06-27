@@ -78,6 +78,7 @@ margin:auto; }
   white-space: nowrap;
   -webkit-user-select: none;
   cursor: pointer;
+  background-color: black;
 }
 
 #root {
