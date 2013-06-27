@@ -8,9 +8,26 @@ handlers:
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
+  
+- url: /cache\.manifest
+  static_files: cache.manifest
+  upload: static/cache\.manifest
+
+- url: /images
+  static_dir: static/images
+  
+- url: /styles
+  static_dir: static/styles
+  
+- url: /videos
+  static_dir: static/videos
+  
+- url: /scripts
+  static_dir: static/scripts
 
 - url: /
-  static_dir: static
+  static_files: static/index.html
+  upload: static/index\.html
 
 libraries:
 - name: webapp2
